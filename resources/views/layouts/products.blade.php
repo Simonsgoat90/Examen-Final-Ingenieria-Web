@@ -241,7 +241,7 @@
     }
 
     .card {
-        background-color:#167AA5 ;
+        background-color:#fff;
         margin: 10px;
         border-radius: 10px;
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -342,6 +342,12 @@
 
     .shopping-cart a:hover {
         color: #888; /* Color del icono al pasar el ratón por encima */
+    }
+
+    /*-------------Paginacion--------------*/
+
+    .pagination {
+        justify-content: center;
     }
 
 

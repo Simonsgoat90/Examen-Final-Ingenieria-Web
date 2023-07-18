@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/producto/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 // Rutas de autenticación
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');

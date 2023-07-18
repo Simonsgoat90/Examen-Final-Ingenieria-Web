@@ -575,7 +575,7 @@
 
     <nav class="navigation">
         <ul>
-            <li><a href="#">Productos<span class="ec ec-pill"></span></a></li>
+            <li><a href="{{ route('products.index') }}">Productos<span class="ec ec-pill"></span></a></li>
             <li><a href="#">Ofertas<span class="ec ec-bomb"></span></a></li>
             <li><a href="#">Más Vendidos<span class="ec ec-bulb"></span></a></li>
         </ul>
