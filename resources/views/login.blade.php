@@ -11,7 +11,6 @@
         <input class="input" placeholder="Contraseña" name="password" type="password"> 
         <button class="btn">Ingresar</button>
         <p class="extra-links">
-            <a href="#">Olvidaste tu contraseña?</a>
             <br>
             <a href="{{ route('register') }}">Registrarme</a>
         </p>
