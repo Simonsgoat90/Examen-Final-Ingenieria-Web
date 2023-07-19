@@ -416,7 +416,7 @@
         <img src="{{ url('images/a.png') }}" alt="" class="logo" onclick="window.location='{{ route('home') }}'">
         <div class="title" onclick="window.location='{{ route('home') }}'">Farma Innova</div>
         <div class="container p-1">
-            <form method="GET" class="form-inline justify-content-center">
+            <form method="GET" action="{{ route('products.index') }}" class="form-inline justify-content-center">
                 <div class="container1">
                     <input type="text" class="form-control mr-sm-2" name="search" placeholder="¿Qué estás buscando?" value="">
                 </div>
