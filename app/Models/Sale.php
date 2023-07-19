@@ -11,11 +11,22 @@ class Sale extends Model
 
     protected $fillable = [
         'date_sale',
-        'client_id',
         'id_product',
         'amount',
         'id_user',
     ];
+
+    public function getTotalAttribute()
+    {
+        return $this->amount * $this->product->product_price;
+    }
+
+    public static function getTotalSales($userId)
+    {
+        return Sale::where('id_user', $userId)->get()->sum('total');
+    }
+
+
 
     public function user() {
         return $this->belongsTo(User::class, 'id_user');

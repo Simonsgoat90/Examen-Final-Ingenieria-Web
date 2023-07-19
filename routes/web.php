@@ -7,6 +7,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+
+
+
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -20,6 +25,16 @@ Route::get('/register', [AuthController::class, 'registerForm'])->name('register
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+// Rutas para el carrito
+
+Route::resource('products', ProductController::class);
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::post('/products/{id}/cart', [ProductController::class, 'addToCart'])->name('products.addToCart')->middleware('auth');
+
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 
 
 Route::prefix('admin')->middleware(['auth', 'EnsureUserIsAdmin'])->group(function () {

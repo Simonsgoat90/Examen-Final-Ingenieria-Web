@@ -422,10 +422,20 @@
                 </div>
             </form>
         </div>
-        <a href="login.html" class="login-link">
-            <i class="fas fa-user login-icon"></i>
-            Iniciar sesión
-        </a>
+        @if(auth()->check())
+            <a href="{{ route('logout') }}" class="login-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-user login-icon"></i>
+                Cerrar sesión
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="login-link">
+                <i class="fas fa-user login-icon"></i>
+                Iniciar sesión
+            </a>
+        @endif
     </header>
 
     <nav class="navigation">

@@ -22,11 +22,15 @@
                     {{ $product->product_description }}
                 </p>
                 <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                        <i class="bi-cart-fill me-1"></i>
-                        Añadir al carrito
-                    </button>
+                    <form action="{{ route('products.addToCart', $product->id) }}" method="POST">
+                        @csrf
+                        <input class="form-control text-center me-3" name="quantity" type="number" value="1" style="max-width: 4rem">
+                        <br>
+                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Añadir al carrito
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
