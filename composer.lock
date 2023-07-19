@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "155103488369641d315990a8faf98526",
+=======
+    "content-hash": "aa322c53454393ed775cfe4807d54a50",
+>>>>>>> de13dfda746fa5ca5b2bc878a7af81934bc36494
     "packages": [
         {
             "name": "brick/math",
@@ -1761,6 +1765,7 @@
             "time": "2022-04-17T13:12:02+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "livewire/livewire",
             "version": "v2.12.3",
             "source": {
@@ -1834,6 +1839,8 @@
             "time": "2023-03-03T20:12:38+00:00"
         },
         {
+=======
+>>>>>>> de13dfda746fa5ca5b2bc878a7af81934bc36494
             "name": "monolog/monolog",
             "version": "3.4.0",
             "source": {
