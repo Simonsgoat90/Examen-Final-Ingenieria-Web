@@ -34,7 +34,7 @@ class OrderController extends Controller
         Session::forget('cart');
         Session::put('sales', $sales);
 
-        return redirect()->route('orders.show', Auth::user()->id);
+        return redirect()->route('orders.show', Auth::user()->id)->with('success', 'Muchas gracias por su compra!! Esta es su factura');
     }
 
 

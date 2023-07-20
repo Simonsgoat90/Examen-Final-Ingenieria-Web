@@ -2,7 +2,7 @@
 
 @section('producto')
 <section class="py-5 d-flex justify-content-center">
-    <div class="w-50">
+    <div class="w-10">
         <h2 class="text-center">Carrito de compras</h2>
 
         @if(count($cart) > 0)
@@ -19,7 +19,11 @@
             <h3 class="text-center">Total: {{ $total }}</h3>
 
             <div class="d-flex justify-content-center mt-3">
-                <a href="{{ route('cart.destroy') }}" class="btn btn-danger me-2">Vaciar carrito</a>
+                <form action="{{ route('cart.destroy') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger me-2" type="submit">Vaciar carrito</button>
+                </form>
                 <form action="{{ route('orders.store') }}" method="POST">
                     @csrf
                     <button class="btn btn-success" type="submit">Confirmar compra</button>

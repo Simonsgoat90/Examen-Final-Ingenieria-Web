@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://unpkg.com/emoji.css/dist/emoji.min.css'>
     <link rel="shortcut icon" href="{{url('images/a.png')}}" type="image/x-icon">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -475,6 +476,25 @@
             <a href="#"><i class="fas fa-phone"></i> +51 987 880 760</a>
         </div>
     </footer>
+
+    <script>
+        @if (session('success'))
+            Swal.fire(
+                '¡Buen trabajo!',
+                '{{ session('success') }}',
+                'success'
+            )
+        @endif
+    </script>
+    <script>
+        @if (session('error'))
+            Swal.fire(
+                '¡Sin Stock!',
+                '{{ session('error') }}',
+                'error'
+            )
+        @endif
+    </script>
     
 </body>
 </html>
