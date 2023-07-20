@@ -1,26 +1,36 @@
 @extends('./layouts.products')
 
 @section('producto')
-<section class="py-5">
-    <h2>Carrito de compras</h2>
+<section class="py-5 d-flex justify-content-center">
+    <div class="w-50">
+        <h2 class="text-center">Carrito de compras</h2>
 
-    @foreach($cart as $id => $item)
-        <div>
-            <h4>{{ $item['name'] }}</h4>
-            <p>Cantidad: {{ $item['quantity'] }}</p>
-            <p>Precio: {{ $item['price'] }}</p>
-        </div>
-    @endforeach
+        @if(count($cart) > 0)
+            @foreach($cart as $id => $item)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ $item['name'] }}</h4>
+                        <p class="card-text">Cantidad: {{ $item['quantity'] }}</p>
+                        <p class="card-text">Precio: {{ $item['price'] }}</p>
+                    </div>
+                </div>
+            @endforeach
 
-    <h3>Total: {{ $total }}</h3>
+            <h3 class="text-center">Total: {{ $total }}</h3>
 
-    <a href="{{ route('cart.destroy') }}" class="btn btn-danger">Vaciar carrito</a>
-    <form action="{{ route('orders.store') }}" method="POST">
-        @csrf
-        <button class="btn btn-success" type="submit">Confirmar compra</button>
-    </form>
-    
+            <div class="d-flex justify-content-center mt-3">
+                <a href="{{ route('cart.destroy') }}" class="btn btn-danger me-2">Vaciar carrito</a>
+                <form action="{{ route('orders.store') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-success" type="submit">Confirmar compra</button>
+                </form>
+            </div>
+        @else
+            <h3 class="text-center">Tu carrito está vacío</h3>
+        @endif
+    </div>
 </section>
+
 
     
 @endsection

@@ -34,16 +34,18 @@ class ProductController extends Controller
         if (!$product) {
             return redirect()->route('products.index')->with('error', 'El producto no existe.');
         }
-        
+
         // Añade el producto al carrito
         $cart = Session::get('cart', []);
+        $quantity = $request->input('quantity', 1); // obten la cantidad del formulario, si no existe será 1
+
         if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity'] += $quantity;  // añade la cantidad especificada por el usuario
         } else {
             $cart[$id] = [
                 'name' => $product->product_name,
                 'price' => $product->product_price,
-                'quantity' => 1,
+                'quantity' => $quantity, // utiliza la cantidad especificada por el usuario
             ];
         }
         Session::put('cart', $cart);
@@ -51,5 +53,4 @@ class ProductController extends Controller
         // Redirige al usuario al carrito con un mensaje de éxito
         return redirect()->route('cart.index')->with('success', 'Producto añadido al carrito correctamente!');
     }
-
 }

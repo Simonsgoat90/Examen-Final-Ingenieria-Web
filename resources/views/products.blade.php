@@ -2,23 +2,29 @@
 
 @section('producto')
     <div class="productos">
-        <h2 class="productos-text">Factura de la compra</h2>
+        <h2 class="productos-text">Productos</h2>
         <div class="container-2">
-            @foreach($sales as $sale)
+            @forelse($products as $product)
                 <div class="card">
-                    <div class="card-header">
-                        <h4 class="product-name">{{ $sale->product->product_name }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Cantidad: {{ $sale->amount }}</p>
-                        <p>Precio por unidad: ${{ $sale->product->product_price }}</p>
-                        <p>Total: ${{ $sale->amount * $sale->product->product_price }}</p>
-                    </div>
+                    <a href="{{ route('product.show', $product->product_code) }}">
+                        <div class="card-header">
+                            <img class="product-image" src="{{ url('images/placeholder.webp') }}" alt="{{ $product->product_name }}">
+                        </div>
+                        <div class="card-body">
+                            {{ $product->product_name }}
+                        </div>
+                        <div class="user">
+                            <div class="user-info">Precio: ${{ $product->product_price }}</div>
+                        </div>
+                    </a>
+                    <button class="buy-button" onclick="window.location='{{ route('product.show', $product->id) }}'">Comprar</button>
                 </div>
-            @endforeach
+            @empty
+                <h2>No se encontró el producto</h2>
+            @endforelse
         </div>
-        <div class="total">
-            <h3>Total de la compra: ${{ $totalSales }}</h3>
+        <div class="pagination">
+            {{ $products->links() }}
         </div>
     </div>
 @endsection

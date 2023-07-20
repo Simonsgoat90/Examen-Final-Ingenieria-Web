@@ -583,6 +583,9 @@
 
     <main class="content">
         @yield('content')
+        <div class="shopping-cart">
+            <a href="{{ route('cart.index')}}"><i class="fa-solid fa-shopping-cart"></i></a>
+        </div>
     </main>
 
     <footer class="footer-distributed">

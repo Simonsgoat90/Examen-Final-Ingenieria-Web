@@ -27,6 +27,10 @@
         background-color: #f0f2f5;
     }
 
+    .content {
+        min-height: 500px;
+    }
+
 
     /*-------------------------------------Header------------------------------------ */
 
@@ -440,7 +444,7 @@
 
     <nav class="navigation">
         <ul>
-            <li><a href="#">Productos<span class="ec ec-pill"></span></a></li>
+            <li><a href="{{ route('products.index') }}">Productos<span class="ec ec-pill"></span></a></li>
             <li><a href="#">Ofertas<span class="ec ec-bomb"></span></a></li>
             <li><a href="#">Más Vendidos<span class="ec ec-bulb"></span></a></li>
         </ul>
@@ -450,7 +454,7 @@
         @yield('producto')
         @yield('relaciondos')        
         <div class="shopping-cart">
-            <a href="#"><i class="fa-solid fa-shopping-cart"></i></a>
+            <a href="{{ route('cart.index')}}"><i class="fa-solid fa-shopping-cart"></i></a>
         </div>
     </main>
 

@@ -24,7 +24,7 @@
                 <div class="d-flex">
                     <form action="{{ route('products.addToCart', $product->id) }}" method="POST">
                         @csrf
-                        <input class="form-control text-center me-3" name="quantity" type="number" value="1" style="max-width: 4rem">
+                        <input class="form-control text-center me-3" name="quantity" type="number" value="1" style="max-width: 4rem" required>
                         <br>
                         <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                             <i class="bi-cart-fill me-1"></i>
